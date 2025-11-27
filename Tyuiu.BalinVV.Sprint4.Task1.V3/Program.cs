@@ -20,16 +20,35 @@ internal class Program
         Console.WriteLine("* ИСХОДНЫЕ ДАННЫЕ:                                                        *");
         Console.WriteLine("***************************************************************************");
         Console.WriteLine("Исходный массив:");
-        int[] array = { 4, 8, 8, 9, 6, 5, 3, 2, 9, 7, 7, 7 };
-        for (int i = 0; i < array.Length; i++)
+        int len;
+        Console.WriteLine("Введите количество элементов массива: ");
+        len = Convert.ToInt32(Console.ReadLine());
+
+        int[] numsArray = new int[len];
+
+        for (int i = 0; i <= len - 1; i++)
         {
-            Console.WriteLine(array[i] + " ");
+            Console.WriteLine("Введите значение " + i + " элемент массива: ");
+            numsArray[i] = Convert.ToInt32(Console.ReadLine());
         }
-        Console.WriteLine("***********************************************************************");
-        Console.WriteLine("*РЕЗУЛЬТАТ:                                                           *");
-        Console.WriteLine("***********************************************************************");
-        int p = Convert.ToInt32(ds.Calculate(array));
-        Console.WriteLine(p);
+        Console.WriteLine();
+        Console.WriteLine("Массив: ");
+
+        for (int i = 0; i <= len - 1; i++)
+        {
+            Console.WriteLine(numsArray[i] + "\t");
+
+        }
+        Console.WriteLine();
+        Console.WriteLine();
+
+
+
+        Console.WriteLine("***************************************************************************");
+        Console.WriteLine("* РЕЗУЛЬТАТ:                                                              *");
+        Console.WriteLine("***************************************************************************");
+        int res = ds.Calculate(numsArray);
+        Console.WriteLine(res);
         Console.ReadKey();
     }
 }
